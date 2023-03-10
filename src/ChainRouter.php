@@ -32,27 +32,21 @@ use Symfony\Component\Routing\RouterInterface;
  */
 class ChainRouter implements ChainRouterInterface, WarmableInterface
 {
-    /**
-     * @var RequestContext|null
-     */
-    private $context;
+    private ?\Symfony\Component\Routing\RequestContext $context = null;
 
     /**
      * Array of arrays of routers grouped by priority.
      *
      * @var RouterInterface[][] Priority => RouterInterface[]
      */
-    private $routers = [];
+    private array $routers = [];
 
     /**
      * @var RouterInterface[] List of routers, sorted by priority
      */
     private $sortedRouters = [];
 
-    /**
-     * @var RouteCollection
-     */
-    private $routeCollection;
+    private ?\Symfony\Cmf\Component\Routing\ChainRouteCollection $routeCollection = null;
 
     /**
      * @var null|LoggerInterface

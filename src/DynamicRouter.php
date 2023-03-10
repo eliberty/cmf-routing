@@ -63,10 +63,7 @@ class DynamicRouter implements RouterInterface, RequestMatcherInterface, Chained
      */
     protected $uriFilterRegexp;
 
-    /**
-     * @var RouteProviderInterface
-     */
-    private $provider;
+    private ?\Symfony\Cmf\Component\Routing\RouteProviderInterface $provider = null;
 
     /**
      * @var RequestContext

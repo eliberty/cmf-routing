@@ -26,10 +26,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ContentRepositoryEnhancer implements RouteEnhancerInterface
 {
-    /**
-     * @var ContentRepositoryInterface
-     */
-    private $contentRepository;
+    private \Symfony\Cmf\Component\Routing\ContentRepositoryInterface $contentRepository;
 
     /**
      * @var string

@@ -61,7 +61,7 @@ class PagedRouteCollection implements \Iterator, \Countable
     {
         // If the last batch was smaller than the batch size, this means there
         // are no more routes available.
-        if (isset($this->currentRoutes) && count($this->currentRoutes) < $this->routesBatchSize) {
+        if (isset($this->currentRoutes) && count((array) $this->currentRoutes) < $this->routesBatchSize) {
             $this->currentRoutes = [];
         } else {
             $this->currentRoutes = $this->provider->getRoutesPaged($offset, $this->routesBatchSize);

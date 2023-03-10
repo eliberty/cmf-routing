@@ -20,12 +20,9 @@ class ChainRouteCollection extends RouteCollection
     /**
      * @var RouteCollection[]
      */
-    private $routeCollections = [];
+    private array $routeCollections = [];
 
-    /**
-     * @var RouteCollection
-     */
-    private $routeCollection;
+    private ?\Symfony\Component\Routing\RouteCollection $routeCollection = null;
 
     public function __clone()
     {
@@ -245,9 +242,7 @@ class ChainRouteCollection extends RouteCollection
             return [];
         }
 
-        $resources = array_map(function (RouteCollection $routeCollection) {
-            return $routeCollection->getResources();
-        }, $this->routeCollections);
+        $resources = array_map(fn(RouteCollection $routeCollection) => $routeCollection->getResources(), $this->routeCollections);
 
         return array_unique(call_user_func_array('array_merge', $resources));
     }

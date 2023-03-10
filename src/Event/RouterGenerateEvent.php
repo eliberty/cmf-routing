@@ -35,10 +35,8 @@ class RouterGenerateEvent extends Event
 
     /**
      * The parameters to use when generating the url.
-     *
-     * @var array
      */
-    private $parameters;
+    private array $parameters;
 
     /**
      * The type of reference to be generated (one of the constants in UrlGeneratorInterface).
